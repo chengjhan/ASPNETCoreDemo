@@ -1,0 +1,29 @@
+﻿@model IEnumerable<OperaWeb.Models.Opera>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Opera</title>
+</head>
+<body>
+    <h1>Opera</h1>
+    <table border="1">
+        <tr>
+            <th>歌劇名稱</th>
+            <th>年代</th>
+            <th>作者</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(mi => item.Title)</td>
+                <td>@Html.DisplayFor(mi => item.Year)</td>
+                <td>@Html.DisplayFor(mi => item.Composer)</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
