@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OperaWeb.Data;
+using OperaWeb.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +11,16 @@ namespace OperaWeb.Controllers
 {
     public class OperaController : Controller
     {
-        private readonly OperaContext _context;
+        private readonly IOperaService _operaService;
 
-        public OperaController(OperaContext context)
+        public OperaController(IOperaService operaService)
         {
-            _context = context;
+            _operaService = operaService;
         }
 
         public IActionResult Index()
         {
-            return View(_context.Operas.ToList());
+            return View(_operaService.List());
         }
     }
 }
