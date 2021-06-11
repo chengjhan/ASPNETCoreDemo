@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OperaWeb.Data;
+using OperaWeb.Models;
 using OperaWeb.Services;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,20 @@ namespace OperaWeb.Controllers
         public IActionResult Index()
         {
             return View(_operaService.List());
+        }
+
+        [HttpGet, ActionName("create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost, ActionName("create")]
+        public IActionResult Create(Opera opera)
+        {
+            _operaService.Create(opera);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

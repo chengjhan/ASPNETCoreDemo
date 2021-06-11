@@ -9,5 +9,7 @@ namespace OperaWeb.Repositories
     public interface IOperaRepository
     {
         IEnumerable<Opera> List();
+
+        void Create(Opera opera);
     }
 }

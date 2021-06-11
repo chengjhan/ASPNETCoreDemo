@@ -20,5 +20,11 @@ namespace OperaWeb.Services
         {
             return _operaRepository.List();
         }
+
+        public void Create(Opera opera)
+        {
+            _operaRepository.Create(opera);
+
+        }
     }
 }

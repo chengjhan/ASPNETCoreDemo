@@ -20,5 +20,11 @@ namespace OperaWeb.Repositories
         {
             return _context.Operas.ToList();
         }
+
+        public void Create(Opera opera)
+        {
+            _context.Add(opera);
+            _context.SaveChanges();
+        }
     }
 }

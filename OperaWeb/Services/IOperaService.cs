@@ -9,5 +9,7 @@ namespace OperaWeb.Services
     public interface IOperaService
     {
         IEnumerable<Opera> List();
+
+        void Create(Opera opera);
     }
 }
