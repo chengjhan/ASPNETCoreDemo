@@ -10,6 +10,8 @@ namespace OperaWeb.Services
     {
         IEnumerable<Opera> List();
 
+        Opera FindById(int id);
+
         void Create(Opera opera);
     }
 }

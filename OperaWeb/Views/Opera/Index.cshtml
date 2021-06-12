@@ -16,6 +16,7 @@
             <th>歌劇名稱</th>
             <th>年代</th>
             <th>作者</th>
+            <th></th>
         </tr>
         @foreach (var item in Model)
         {
@@ -23,6 +24,7 @@
                 <td>@Html.DisplayFor(mi => item.Title)</td>
                 <td>@Html.DisplayFor(mi => item.Year)</td>
                 <td>@Html.DisplayFor(mi => item.Composer)</td>
+                <td><a asp-controller="opera" asp-action="detail" asp-route-id="@item.OperaID">Detail</a></td>
             </tr>
         }
     </table>

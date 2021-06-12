@@ -24,6 +24,14 @@ namespace OperaWeb.Controllers
             return View(_operaService.List());
         }
 
+        [HttpGet, ActionName("detail")]
+        public IActionResult Detail(int? id)
+        {
+            var opera = _operaService.FindById((int)id);
+
+            return View(opera);
+        }
+
         [HttpGet, ActionName("create")]
         public IActionResult Create()
         {

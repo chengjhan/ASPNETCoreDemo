@@ -10,6 +10,8 @@ namespace OperaWeb.Repositories
     {
         IEnumerable<Opera> List();
 
+        Opera FindById(int id);
+
         void Create(Opera opera);
     }
 }

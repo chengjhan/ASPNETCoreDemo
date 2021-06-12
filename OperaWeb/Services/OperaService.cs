@@ -21,6 +21,11 @@ namespace OperaWeb.Services
             return _operaRepository.List();
         }
 
+        public Opera FindById(int id)
+        {
+            return _operaRepository.FindById(id);
+        }
+
         public void Create(Opera opera)
         {
             _operaRepository.Create(opera);
