@@ -13,5 +13,7 @@ namespace OperaWeb.Services
         Opera FindById(int id);
 
         void Create(Opera opera);
+
+        void Edit(Opera opera);
     }
 }

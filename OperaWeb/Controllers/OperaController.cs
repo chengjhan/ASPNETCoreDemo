@@ -45,5 +45,19 @@ namespace OperaWeb.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet, ActionName("edit")]
+        public IActionResult Edit(int? id)
+        {
+            return View(_operaService.FindById((int)id));
+        }
+
+        [HttpPost, ActionName("edit")]
+        public IActionResult Edit(Opera opera)
+        {
+            _operaService.Edit(opera);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

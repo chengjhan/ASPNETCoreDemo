@@ -31,5 +31,11 @@ namespace OperaWeb.Repositories
             _context.Add(opera);
             _context.SaveChanges();
         }
+
+        public void Edit(Opera opera)
+        {
+            _context.Update(opera);
+            _context.SaveChanges();
+        }
     }
 }

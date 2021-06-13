@@ -29,7 +29,11 @@ namespace OperaWeb.Services
         public void Create(Opera opera)
         {
             _operaRepository.Create(opera);
+        }
 
+        public void Edit(Opera opera)
+        {
+            _operaRepository.Edit(opera);
         }
     }
 }

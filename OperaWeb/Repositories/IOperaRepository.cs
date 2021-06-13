@@ -13,5 +13,7 @@ namespace OperaWeb.Repositories
         Opera FindById(int id);
 
         void Create(Opera opera);
+
+        void Edit(Opera opera);
     }
 }
