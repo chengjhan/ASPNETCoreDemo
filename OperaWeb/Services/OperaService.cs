@@ -35,5 +35,10 @@ namespace OperaWeb.Services
         {
             _operaRepository.Edit(opera);
         }
+
+        public void Delete(int id)
+        {
+            _operaRepository.Delete(_operaRepository.FindById(id));
+        }
     }
 }

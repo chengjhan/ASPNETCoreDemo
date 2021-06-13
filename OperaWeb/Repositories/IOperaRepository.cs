@@ -15,5 +15,7 @@ namespace OperaWeb.Repositories
         void Create(Opera opera);
 
         void Edit(Opera opera);
+
+        void Delete(Opera opera);
     }
 }

@@ -15,5 +15,7 @@ namespace OperaWeb.Services
         void Create(Opera opera);
 
         void Edit(Opera opera);
+
+        void Delete(int id);
     }
 }

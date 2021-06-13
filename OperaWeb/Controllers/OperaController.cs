@@ -59,5 +59,19 @@ namespace OperaWeb.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet, ActionName("delete")]
+        public IActionResult Delete(int? id)
+        {
+            return View(_operaService.FindById((int)id));
+        }
+
+        [HttpPost, ActionName("delete")]
+        public IActionResult Delete(int id)
+        {
+            _operaService.Delete(id);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -37,5 +37,11 @@ namespace OperaWeb.Repositories
             _context.Update(opera);
             _context.SaveChanges();
         }
+
+        public void Delete(Opera opera)
+        {
+            _context.Remove(opera);
+            _context.SaveChanges();
+        }
     }
 }
