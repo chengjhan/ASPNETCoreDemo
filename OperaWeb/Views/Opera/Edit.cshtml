@@ -1,0 +1,35 @@
+﻿@model OperaWeb.Models.Opera
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Opera Edit</title>
+</head>
+<body>
+    <h1>Opera Edit</h1>
+    <form asp-controller="opera" asp-action="edit" method="post">
+        <div>
+            <input type="hidden" asp-for="OperaID" />
+        </div>
+        <div>
+            <label asp-for="Title"></label>
+            <input asp-for="Title" />
+        </div>
+        <div>
+            <label asp-for="Year"></label>
+            <input asp-for="Year" />
+        </div>
+        <div>
+            <label asp-for="Composer"></label>
+            <input asp-for="Composer" />
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </form>
+    <p><a asp-controller="opera" asp-action="">Back to List</a></p>
+</body>
+</html>
