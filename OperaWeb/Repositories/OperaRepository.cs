@@ -20,5 +20,28 @@ namespace OperaWeb.Repositories
         {
             return _context.Operas.ToList();
         }
+
+        public Opera FindById(int id)
+        {
+            return _context.Operas.FirstOrDefault(m => m.OperaID == id);
+        }
+
+        public void Create(Opera opera)
+        {
+            _context.Add(opera);
+            _context.SaveChanges();
+        }
+
+        public void Edit(Opera opera)
+        {
+            _context.Update(opera);
+            _context.SaveChanges();
+        }
+
+        public void Delete(Opera opera)
+        {
+            _context.Remove(opera);
+            _context.SaveChanges();
+        }
     }
 }

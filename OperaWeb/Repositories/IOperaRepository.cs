@@ -9,5 +9,13 @@ namespace OperaWeb.Repositories
     public interface IOperaRepository
     {
         IEnumerable<Opera> List();
+
+        Opera FindById(int id);
+
+        void Create(Opera opera);
+
+        void Edit(Opera opera);
+
+        void Delete(Opera opera);
     }
 }
