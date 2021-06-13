@@ -73,5 +73,13 @@ namespace OperaWeb.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet, ActionName("delete2")]
+        public IActionResult Delete2(int? id)
+        {
+            _operaService.Delete((int)id);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

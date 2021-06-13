@@ -19,6 +19,7 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         @foreach (var item in Model)
         {
@@ -29,6 +30,7 @@
                 <td><a asp-controller="opera" asp-action="detail" asp-route-id="@item.OperaID">Detail</a></td>
                 <td><a asp-controller="opera" asp-action="edit" asp-route-id="@item.OperaID">Edit</a></td>
                 <td><a asp-controller="opera" asp-action="delete" asp-route-id="@item.OperaID">Delete</a></td>
+                <td><a asp-controller="opera" asp-action="delete2" asp-route-id="@item.OperaID" onclick="return confirm('確定要刪除此筆資料?');">Delete2</a></td>
             </tr>
         }
     </table>
