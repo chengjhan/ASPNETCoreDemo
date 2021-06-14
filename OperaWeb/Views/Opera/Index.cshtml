@@ -11,6 +11,10 @@
 <body>
     <h1>Opera</h1>
     <p><a asp-controller="opera" asp-action="create">Create</a></p>
+    <form asp-controller="opera" asp-action="index" method="get">
+        Opera Title: <input type="text" value="@Context.Request.Query["q"]" name="q" />
+        <input type="submit" value="Search" />
+    </form>
     <table border="1">
         <tr>
             <th>歌劇名稱</th>

@@ -43,5 +43,17 @@ namespace OperaWeb.Repositories
             _context.Remove(opera);
             _context.SaveChanges();
         }
+
+        public IEnumerable<Opera> FindByTitleContains(string q)
+        {
+            IQueryable<Opera> query = _context.Operas.AsQueryable();
+
+            if (!string.IsNullOrEmpty(q))
+            {
+                query = query.Where(o => o.Title.Contains(q));
+            }
+
+            return query.ToList();
+        }
     }
 }

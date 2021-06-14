@@ -17,5 +17,7 @@ namespace OperaWeb.Repositories
         void Edit(Opera opera);
 
         void Delete(Opera opera);
+
+        IEnumerable<Opera> FindByTitleContains(string q);
     }
 }

@@ -17,5 +17,7 @@ namespace OperaWeb.Services
         void Edit(Opera opera);
 
         void Delete(int id);
+
+        IEnumerable<Opera> Search(string q);
     }
 }

@@ -40,5 +40,10 @@ namespace OperaWeb.Services
         {
             _operaRepository.Delete(_operaRepository.FindById(id));
         }
+
+        public IEnumerable<Opera> Search(string q)
+        {
+            return _operaRepository.FindByTitleContains(q);
+        }
     }
 }

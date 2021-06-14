@@ -19,9 +19,10 @@ namespace OperaWeb.Controllers
             _operaService = operaService;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index([FromQuery] string q)
         {
-            return View(_operaService.List());
+            return View(_operaService.Search(q));
         }
 
         [HttpGet, ActionName("detail")]
