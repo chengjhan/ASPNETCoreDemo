@@ -20,9 +20,12 @@ namespace OperaWeb.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index([FromQuery] string q)
+        public IActionResult Index([FromQuery] string q, [FromQuery] string s)
         {
-            return View(_operaService.Search(q));
+            ViewBag.sTitle = !"title_asc".Equals(s) ? "title_asc" : "title_desc";
+            ViewBag.sYear = !"year_asc".Equals(s) ? "year_asc" : "year_desc";
+
+            return View(_operaService.Search(q, s));
         }
 
         [HttpGet, ActionName("detail")]

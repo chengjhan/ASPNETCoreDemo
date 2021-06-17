@@ -17,8 +17,8 @@
     </form>
     <table border="1">
         <tr>
-            <th>歌劇名稱</th>
-            <th>年代</th>
+            <th><a asp-controller="opera" asp-action="index" asp-route-q="@Context.Request.Query["q"]" asp-route-s="@ViewBag.sTitle">歌劇名稱</a></th>
+            <th><a asp-controller="opera" asp-action="index" asp-route-q="@Context.Request.Query["q"]" asp-route-s="@ViewBag.sYear">年代</a></th>
             <th>作者</th>
             <th></th>
             <th></th>

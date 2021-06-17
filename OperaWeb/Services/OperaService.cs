@@ -45,5 +45,10 @@ namespace OperaWeb.Services
         {
             return _operaRepository.FindByTitleContains(q);
         }
+
+        public IEnumerable<Opera> Search(string q, string s)
+        {
+            return _operaRepository.FindByTitleContainsOrderByTitleOrYear(q, s);
+        }
     }
 }

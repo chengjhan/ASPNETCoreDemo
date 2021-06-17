@@ -19,5 +19,7 @@ namespace OperaWeb.Services
         void Delete(int id);
 
         IEnumerable<Opera> Search(string q);
+
+        IEnumerable<Opera> Search(string q, string s);
     }
 }
