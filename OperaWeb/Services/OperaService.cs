@@ -1,5 +1,6 @@
 ﻿using OperaWeb.Models;
 using OperaWeb.Repositories;
+using OperaWeb.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,17 @@ namespace OperaWeb.Services
         public IEnumerable<Opera> Search(string q, string s)
         {
             return _operaRepository.FindByTitleContainsOrderByTitleOrYear(q, s);
+        }
+
+        public Pagination<Opera> Search(string q, string s, int pageNumber, int pageSize)
+        {
+            Pagination<Opera> pagination = new();
+            pagination.List = _operaRepository.FindByTitleContainsOrderByTitleOrYearPaging(q, s, pageNumber, pageSize);
+            pagination.Count = _operaRepository.CountByTitleContains(q);
+            pagination.PageNumber = pageNumber;
+            pagination.PageSize = pageSize;
+
+            return pagination;
         }
     }
 }

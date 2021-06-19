@@ -1,4 +1,5 @@
 ﻿using OperaWeb.Models;
+using OperaWeb.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,5 +22,7 @@ namespace OperaWeb.Services
         IEnumerable<Opera> Search(string q);
 
         IEnumerable<Opera> Search(string q, string s);
+
+        Pagination<Opera> Search(string q, string s, int pageNumber, int pageSize);
     }
 }

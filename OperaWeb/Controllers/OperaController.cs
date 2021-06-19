@@ -20,12 +20,15 @@ namespace OperaWeb.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index([FromQuery] string q, [FromQuery] string s)
+        public IActionResult Index([FromQuery] string q, [FromQuery] string s, [FromQuery] int? p)
         {
+            int pageNumber = p == null ? 1 : (int)p;
+            int pageSize = 10;
+
             ViewBag.sTitle = !"title_asc".Equals(s) ? "title_asc" : "title_desc";
             ViewBag.sYear = !"year_asc".Equals(s) ? "year_asc" : "year_desc";
 
-            return View(_operaService.Search(q, s));
+            return View(_operaService.Search(q, s, pageNumber, pageSize));
         }
 
         [HttpGet, ActionName("detail")]

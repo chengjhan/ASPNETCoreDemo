@@ -21,5 +21,9 @@ namespace OperaWeb.Repositories
         IEnumerable<Opera> FindByTitleContains(string q);
 
         IEnumerable<Opera> FindByTitleContainsOrderByTitleOrYear(string q, string s);
+
+        IEnumerable<Opera> FindByTitleContainsOrderByTitleOrYearPaging(string q, string s, int pageNumber, int pageSize);
+
+        int CountByTitleContains(String q);
     }
 }
