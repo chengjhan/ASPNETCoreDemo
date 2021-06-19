@@ -1,10 +1,7 @@
 ﻿using OperaWeb.Models;
 using OperaWeb.Repositories;
 using OperaWeb.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OperaWeb.Services
 {

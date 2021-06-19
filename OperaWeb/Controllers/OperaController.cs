@@ -1,12 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using OperaWeb.Data;
 using OperaWeb.Models;
 using OperaWeb.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OperaWeb.Controllers
 {
@@ -34,9 +28,7 @@ namespace OperaWeb.Controllers
         [HttpGet, ActionName("detail")]
         public IActionResult Detail(int? id)
         {
-            var opera = _operaService.FindById((int)id);
-
-            return View(opera);
+            return View(_operaService.FindById((int)id));
         }
 
         [HttpGet, ActionName("create")]
