@@ -1,9 +1,7 @@
 ﻿using OperaWeb.Models;
 using OperaWeb.Repositories;
-using System;
+using OperaWeb.ViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OperaWeb.Services
 {
@@ -39,6 +37,27 @@ namespace OperaWeb.Services
         public void Delete(int id)
         {
             _operaRepository.Delete(_operaRepository.FindById(id));
+        }
+
+        public IEnumerable<Opera> Search(string q)
+        {
+            return _operaRepository.FindByTitleContains(q);
+        }
+
+        public IEnumerable<Opera> Search(string q, string s)
+        {
+            return _operaRepository.FindByTitleContainsOrderByTitleOrYear(q, s);
+        }
+
+        public Pagination<Opera> Search(string q, string s, int pageNumber, int pageSize)
+        {
+            Pagination<Opera> pagination = new();
+            pagination.List = _operaRepository.FindByTitleContainsOrderByTitleOrYearPaging(q, s, pageNumber, pageSize);
+            pagination.Count = _operaRepository.CountByTitleContains(q);
+            pagination.PageNumber = pageNumber;
+            pagination.PageSize = pageSize;
+
+            return pagination;
         }
     }
 }

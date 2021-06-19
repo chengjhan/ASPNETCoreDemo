@@ -1,12 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using OperaWeb.Data;
 using OperaWeb.Models;
 using OperaWeb.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OperaWeb.Controllers
 {
@@ -19,17 +13,22 @@ namespace OperaWeb.Controllers
             _operaService = operaService;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index([FromQuery] string q, [FromQuery] string s, [FromQuery] int? p)
         {
-            return View(_operaService.List());
+            int pageNumber = p == null ? 1 : (int)p;
+            int pageSize = 10;
+
+            ViewBag.sTitle = !"title_asc".Equals(s) ? "title_asc" : "title_desc";
+            ViewBag.sYear = !"year_asc".Equals(s) ? "year_asc" : "year_desc";
+
+            return View(_operaService.Search(q, s, pageNumber, pageSize));
         }
 
         [HttpGet, ActionName("detail")]
         public IActionResult Detail(int? id)
         {
-            var opera = _operaService.FindById((int)id);
-
-            return View(opera);
+            return View(_operaService.FindById((int)id));
         }
 
         [HttpGet, ActionName("create")]

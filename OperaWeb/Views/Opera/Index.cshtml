@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OperaWeb.Models.Opera>
+﻿@model OperaWeb.ViewModels.Pagination<OperaWeb.Models.Opera>
 @{
     Layout = null;
 }
@@ -11,17 +11,21 @@
 <body>
     <h1>Opera</h1>
     <p><a asp-controller="opera" asp-action="create">Create</a></p>
+    <form asp-controller="opera" asp-action="index" method="get">
+        Opera Title: <input type="text" value="@Context.Request.Query["q"]" name="q" />
+        <input type="submit" value="Search" />
+    </form>
     <table border="1">
         <tr>
-            <th>歌劇名稱</th>
-            <th>年代</th>
+            <th><a asp-controller="opera" asp-action="index" asp-route-q="@Context.Request.Query["q"]" asp-route-s="@ViewBag.sTitle">歌劇名稱</a></th>
+            <th><a asp-controller="opera" asp-action="index" asp-route-q="@Context.Request.Query["q"]" asp-route-s="@ViewBag.sYear">年代</a></th>
             <th>作者</th>
             <th></th>
             <th></th>
             <th></th>
             <th></th>
         </tr>
-        @foreach (var item in Model)
+        @foreach (var item in Model.List)
         {
             <tr>
                 <td>@Html.DisplayFor(mi => item.Title)</td>
@@ -34,6 +38,22 @@
             </tr>
         }
     </table>
+    @if (Model.HasPrevious())
+    {
+        <a asp-controller="opera" asp-action="index" asp-route-q="@Context.Request.Query["q"]" asp-route-s="@Context.Request.Query["s"]" asp-route-p="@(Model.PageNumber - 1)">上一頁</a>
+    }
+    else
+    {
+        @:上一頁
+    }
+    @if (Model.HasNext())
+    {
+        <a asp-controller="opera" asp-action="index" asp-route-q="@Context.Request.Query["q"]" asp-route-s="@Context.Request.Query["s"]" asp-route-p="@(Model.PageNumber + 1)">下一頁</a>
+    }
+    else
+    {
+        @:下一頁
+    }
     <p><a asp-controller="">Home</a></p>
 </body>
 </html>

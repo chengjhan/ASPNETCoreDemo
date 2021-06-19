@@ -1,8 +1,6 @@
 ﻿using OperaWeb.Models;
-using System;
+using OperaWeb.ViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OperaWeb.Services
 {
@@ -17,5 +15,11 @@ namespace OperaWeb.Services
         void Edit(Opera opera);
 
         void Delete(int id);
+
+        IEnumerable<Opera> Search(string q);
+
+        IEnumerable<Opera> Search(string q, string s);
+
+        Pagination<Opera> Search(string q, string s, int pageNumber, int pageSize);
     }
 }
