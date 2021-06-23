@@ -9,6 +9,13 @@ namespace OperaWeb.ViewModels
         public int Count { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
+        public int PageCount
+        {
+            get
+            {
+                return (int)Math.Ceiling(Count / (double)PageSize);
+            }
+        }
 
         public bool HasPrevious()
         {
@@ -17,7 +24,7 @@ namespace OperaWeb.ViewModels
 
         public bool HasNext()
         {
-            return PageNumber < (int)Math.Ceiling(Count / (double)PageSize);
+            return PageNumber < PageCount;
         }
     }
 }
