@@ -46,6 +46,17 @@
     {
         @:上一頁
     }
+    @for (int i = 1; i <= Model.PageCount; i++)
+    {
+        if (i == Model.PageNumber)
+        {
+            @i
+        }
+        else
+        {
+            <a asp-controller="opera" asp-action="index" asp-route-q="@Context.Request.Query["q"]" asp-route-s="@Context.Request.Query["s"]" asp-route-p="@i">@i</a>
+        }
+    }
     @if (Model.HasNext())
     {
         <a asp-controller="opera" asp-action="index" asp-route-q="@Context.Request.Query["q"]" asp-route-s="@Context.Request.Query["s"]" asp-route-p="@(Model.PageNumber + 1)">下一頁</a>
