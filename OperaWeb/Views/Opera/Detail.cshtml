@@ -15,6 +15,12 @@
         <li>@Html.DisplayNameFor(m => m.Year): @Html.DisplayFor(m => m.Year)</li>
         <li>@Html.DisplayNameFor(m => m.Composer): @Html.DisplayFor(m => m.Composer)</li>
     </ul>
+    <hr />
+    <h3>User Comments</h3>
+    @foreach (var item in Model.Comments)
+    {
+        <div><span>@item.UserName : @item.UserComment - @item.LastModified.ToString("yyyy/MM/dd")</span></div>
+    }
     <p><a asp-controller="opera" asp-action="">Back to List</a></p>
 </body>
 </html>
