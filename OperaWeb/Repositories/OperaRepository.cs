@@ -1,4 +1,5 @@
-﻿using OperaWeb.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using OperaWeb.Data;
 using OperaWeb.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace OperaWeb.Repositories
 
         public Opera FindById(int id)
         {
-            return _context.Operas.FirstOrDefault(m => m.OperaID == id);
+            return _context.Operas.Include("Comments").FirstOrDefault(m => m.OperaID == id);
         }
 
         public void Create(Opera opera)
